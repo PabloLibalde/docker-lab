@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: nginxlab 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginxlab
+  template:
+    metadata:
+      labels:
+        app: nginxlab 
+    spec:
+      containers:
+        - name: nginxlab 
+          image: rglabregistri.azurecr.io/nginxlab
+          ports:
+          - containerPort: 80
